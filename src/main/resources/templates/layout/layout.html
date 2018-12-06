@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head th:replace="fragments/header :: header">
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header th:replace="fragments/main-header :: main-header"></header>
+    <aside th:replace="fragments/sidebar :: sidebar"></aside>
+    <div layout:fragment="content"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script th:src="@{/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
+</body>
+
+</html>
