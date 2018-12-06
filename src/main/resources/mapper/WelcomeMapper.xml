@@ -5,6 +5,6 @@
 
 <mapper namespace="com.cafe24.websample.web.welcome.WelcomeMapper">
     <select id="selectWelcomeList" parameterType="com.cafe24.websample.web.welcome.WelcomeVO" resultType="com.cafe24.websample.web.welcome.WelcomeVO">
-        select * from yt_user
+        select * from ws_user
     </select>
 </mapper>

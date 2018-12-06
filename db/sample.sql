@@ -1,6 +1,6 @@
 /*
 SQLyog Community v12.5.1 (64 bit)
-MySQL - 10.1.30-MariaDB : Database - youtour
+MySQL - 10.1.30-MariaDB : Database - web_sample
 *********************************************************************
 */
 
@@ -12,15 +12,15 @@ MySQL - 10.1.30-MariaDB : Database - youtour
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`youtour` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`web_sample` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `youtour`;
+USE `web_sample`;
 
 /*Table structure for table `yt_role` */
 
-DROP TABLE IF EXISTS `yt_role`;
+DROP TABLE IF EXISTS `ws_role`;
 
-CREATE TABLE `yt_role` (
+CREATE TABLE `ws_role` (
   `role_id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(128) DEFAULT NULL,
   `role_type` varchar(128) DEFAULT NULL,
@@ -32,9 +32,9 @@ CREATE TABLE `yt_role` (
 
 /*Table structure for table `yt_user` */
 
-DROP TABLE IF EXISTS `yt_user`;
+DROP TABLE IF EXISTS `ws_user`;
 
-CREATE TABLE `yt_user` (
+CREATE TABLE `ws_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(128) DEFAULT NULL,
   `nick_name` varchar(128) DEFAULT NULL,
