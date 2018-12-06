@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/welcome/")
+@RequestMapping("/welcome")
 public class WelcomeController {
     @Autowired
     WelcomeService welcomeService;
@@ -19,7 +19,7 @@ public class WelcomeController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "hello.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/hello.do", method = RequestMethod.GET)
     public String hello(Model model) throws Exception {
         welcomeService.selectWelcomeList();
         model.addAttribute("name", "Eunhyuk");
@@ -33,12 +33,12 @@ public class WelcomeController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "content.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/content.do", method = RequestMethod.GET)
     public String content(Model model) throws Exception {
         return "content";
     }
 
-    @RequestMapping(value = "multi.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/multi.do", method = RequestMethod.GET)
     public String multiTest(Model model) throws Exception {
         welcomeService.multiThreadTest();
         return "content";

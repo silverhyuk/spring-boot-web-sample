@@ -29,7 +29,7 @@ public class WelcomeService {
         return WelcomeList;
     }
 
-    @Async("fooExecutor")
+    //@Async("fooExecutor")
     public List<WelcomeVO>  multiThreadTest() throws  Exception {
 
         WelcomeVO welcomeVO = new WelcomeVO();
