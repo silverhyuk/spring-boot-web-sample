@@ -1,5 +1,7 @@
-package com.cafe24.websample.domain.account;
+package com.cafe24.websample.web.login;
 
+import com.cafe24.websample.domain.account.Account;
+import com.cafe24.websample.domain.account.AccountRepository;
 import com.cafe24.websample.domain.role.Role;
 import com.cafe24.websample.domain.role.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,7 @@ public class AccountService implements UserDetailsService {
         account.setRegDateTime(new Date());
         account.setEmail("tldn23@gmail.com");
         account.setActive(1);
-        Role role = createRole("ROLE_USER");
+        Role role = createRole("ROLE_ADMIN");
         account.setRoleId(role.getId());
         return accountRepository.save(account);
     }
@@ -63,6 +65,6 @@ public class AccountService implements UserDetailsService {
    private Collection<? extends GrantedAuthority> authorities(Long roleId) {
        Optional<Role> byId = roleRepository.findById(roleId);
        Role role = byId.orElseThrow(() -> new NullPointerException(roleId.toString()));
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        return Arrays.asList(new SimpleGrantedAuthority(role.getRoleName()));
     }
 }

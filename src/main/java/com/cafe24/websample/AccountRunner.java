@@ -2,7 +2,7 @@ package com.cafe24.websample;
 
 
 import com.cafe24.websample.domain.account.Account;
-import com.cafe24.websample.domain.account.AccountService;
+import com.cafe24.websample.web.login.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
