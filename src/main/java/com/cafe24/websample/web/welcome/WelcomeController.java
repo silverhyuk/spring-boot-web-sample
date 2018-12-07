@@ -21,7 +21,7 @@ public class WelcomeController {
      */
     @RequestMapping(value = "/hello.do", method = RequestMethod.GET)
     public String hello(Model model) throws Exception {
-        welcomeService.selectWelcomeList();
+        //welcomeService.selectWelcomeList();
         model.addAttribute("name", "Eunhyuk");
         model.addAttribute("title", "Welcome");
         return "welcome";

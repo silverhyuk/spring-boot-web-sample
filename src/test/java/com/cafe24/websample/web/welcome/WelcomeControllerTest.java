@@ -33,6 +33,6 @@ public class WelcomeControllerTest {
                             .accept(MediaType.TEXT_HTML))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("hello"));
+                .andExpect(view().name("welcome"));
     }
 }
