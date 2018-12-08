@@ -24,7 +24,7 @@ public class WelcomeService {
         List<WelcomeVO> WelcomeList = welcomeMapper.selectWelcomeList(welcomeVO);
 
         for(WelcomeVO vo : WelcomeList) {
-            log.debug("name : " + vo.getName() +  " / team : " + vo.getTeam());
+            log.debug("name : " + vo.getUsername() +  " / created at : " + vo.getCreatedAt());
         }
         return WelcomeList;
     }
@@ -36,7 +36,7 @@ public class WelcomeService {
         List<WelcomeVO> WelcomeList = welcomeMapper.selectWelcomeList(welcomeVO);
 
         for(WelcomeVO vo : WelcomeList) {
-            log.debug("name : " + vo.getName() +  " / team : " + vo.getTeam());
+            log.debug("name : " + vo.getUsername() +  " / created at : " + vo.getCreatedAt());
         }
         return WelcomeList;
     }
@@ -48,7 +48,7 @@ public class WelcomeService {
         List<WelcomeVO> WelcomeList = welcomeMapper.selectWelcomeList(welcomeVO);
 
         for(WelcomeVO vo : WelcomeList) {
-            log.debug("name : " + vo.getName() +  " / team : " + vo.getTeam());
+            log.debug("name : " + vo.getUsername() +  " / created at : " + vo.getCreatedAt());
         }
         return ret;
     }

@@ -21,7 +21,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity
 public class Account {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
     private Long Id;
 

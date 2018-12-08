@@ -1,26 +1,18 @@
 package com.cafe24.websample.web.welcome;
 
-public class WelcomeVO {
-    private String code = "";
-    private String name = "";
-    private String team = "";
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getTeam() {
-        return team;
-    }
-    public void setTeam(String team) {
-        this.team = team;
-    }
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+public class WelcomeVO {
+    private int userId;
+    private String username;
+    private String password;
+    private String email;
+    private String createdAt;
 }

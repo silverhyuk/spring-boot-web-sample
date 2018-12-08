@@ -1,0 +1,257 @@
+# 기본 환경설정
+
+spring:
+  profiles:
+    active: local
+
+# 로컬개발환경
+---
+
+server :
+  port: 8080
+  servlet :
+    session :
+      timeout : 36000ms
+
+spring:
+  profiles: local
+  datasource:
+    username: utour
+    password: 1q2w3e4r5t
+    dbcp2:
+      validation-query: SELECT 1
+      initial-size : 10
+      max-idle : 20
+      min-idle : 10
+      max-wait-millis : 10000
+      max-total : 400
+      test-on-borrow : true
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/web_sample?autoReconnect=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql : true
+        format_sql : true
+        type : trace
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        jdbc :
+          lob :
+            non_contextual_creation : true
+    database-platform : org.hibernate.dialect.MySQL57Dialect
+
+  thymeleaf :
+    cache : false
+
+  devtools:
+    livereload:
+      enabled: true
+#  redis:
+#    host: 127.0.0.1
+#    port: 32768
+
+#  session:
+#    store-type: redis
+
+version: 1.0.0.0
+
+logging :
+  level :
+    org :
+      hibernate :
+        type :
+          descriptor :
+            sql : TRACE
+      springframework : INFO
+      mybatis : DEBUG
+  file : ./log/local
+
+
+
+#manager:
+#  email-host: smtp.gmail.com
+#  email-port: 587
+#  email-id: tldn233@gmail.com
+
+#  email-password: yLdh+DTY+DNbxDwShHTLZA==
+#  email-protocol: smtp
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  config-location: classpath:config/mybatis/mybatisConfig.xml
+  type-aliases-package: com.cafe24.websample
+
+
+# 개발환경
+---
+server :
+  port: 80
+  servlet :
+    session :
+      timeout : 36000ms
+
+spring:
+  profiles: development
+  datasource:
+    username: utour
+    password: 1q2w3e4r5t
+    dbcp2:
+      validation-query: SELECT 1
+      initial-size : 10
+      max-idle : 20
+      min-idle : 10
+      max-wait-millis : 10000
+      max-total : 400
+      test-on-borrow : true
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/web_sample?autoReconnect=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql : true
+        format_sql : true
+        type : trace
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        jdbc :
+          lob :
+            non_contextual_creation : true
+    database-platform : org.hibernate.dialect.MySQL57Dialect
+
+
+  thymeleaf :
+    cache : false
+
+  devtools:
+    livereload:
+      enabled: true
+#  redis:
+#    host: 127.0.0.1
+#    port: 32768
+
+#  session:
+#    store-type: redis
+
+version: 1.0.0.0
+
+logging :
+  level :
+    org :
+      hibernate :
+        type :
+          descriptor :
+            sql : TRACE
+      springframework : INFO
+      mybatis : DEBUG
+  file : ./log/local
+
+
+#manager:
+#  email-host: smtp.gmail.com
+#  email-port: 587
+#  email-id: tldn233@gmail.com
+
+#  email-password: yLdh+DTY+DNbxDwShHTLZA==
+#  email-protocol: smtp
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  config-location: classpath:config/mybatis/mybatisConfig.xml
+  type-aliases-package: com.cafe24.websample
+
+
+# 운영환경 설정
+---
+server :
+  port: 80
+  servlet :
+    session :
+      timeout : 36000ms
+
+spring:
+  profiles: production
+  datasource:
+    username: utour
+    password: 1q2w3e4r5t
+    dbcp2:
+      validation-query: SELECT 1
+      initial-size : 10
+      max-idle : 20
+      min-idle : 10
+      max-wait-millis : 10000
+      max-total : 400
+      test-on-borrow : true
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/web_sample?autoReconnect=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql : true
+        format_sql : true
+        type : trace
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        jdbc :
+          lob :
+            non_contextual_creation : true
+    database-platform : org.hibernate.dialect.MySQL57Dialect
+
+
+  thymeleaf :
+    cache : false
+
+  devtools:
+    livereload:
+      enabled: true
+#  redis:
+#    host: 127.0.0.1
+#    port: 32768
+
+#  session:
+#    store-type: redis
+
+version: 1.0.0.0
+
+logging :
+  level :
+    org :
+      hibernate :
+        type :
+          descriptor :
+            sql : TRACE
+      springframework : INFO
+      mybatis : DEBUG
+  file : ./log/local
+
+
+#manager:
+#  email-host: smtp.gmail.com
+#  email-port: 587
+#  email-id: tldn233@gmail.com
+
+#  email-password: yLdh+DTY+DNbxDwShHTLZA==
+#  email-protocol: smtp
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  config-location: classpath:config/mybatis/mybatisConfig.xml
+  type-aliases-package: com.cafe24.websample

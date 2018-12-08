@@ -29,7 +29,7 @@ public class WelcomeControllerTest {
     @Test
     @WithMockUser
     public void hello() throws Exception {
-        mockMvc.perform(get("/welcome/hello.do")
+        mockMvc.perform(get("/welcome/hello.ws")
                             .accept(MediaType.TEXT_HTML))
                 .andDo(print())
                 .andExpect(status().isOk())

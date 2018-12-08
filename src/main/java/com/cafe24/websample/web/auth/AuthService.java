@@ -1,4 +1,4 @@
-package com.cafe24.websample.web.login;
+package com.cafe24.websample.web.auth;
 
 import com.cafe24.websample.domain.account.Account;
 import com.cafe24.websample.domain.account.AccountRepository;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class AccountService implements UserDetailsService {
+public class AuthService implements UserDetailsService {
 
     @Autowired
     private AccountRepository accountRepository;
