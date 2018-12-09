@@ -19,8 +19,8 @@ public class AuthController {
         String referer = req.getHeader("Referer");
         req.getSession().setAttribute("prevPage", referer);
 
-/*        String error = (String) req.getAttribute("error");
-        logger.debug("error : {}", error);*/
+        String error = (String) req.getParameter("error");
+        logger.debug("error : {}", error);
 
         return "auth/login";
     }
