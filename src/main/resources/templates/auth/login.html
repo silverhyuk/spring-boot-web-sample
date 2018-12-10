@@ -38,7 +38,7 @@
 
     <form action="/login.ws" method="post">
       <div class="form-group has-feedback">
-        <input name="userId" type="text" class="form-control" placeholder="Email">
+        <input name="userId" type="text" class="form-control" placeholder="Email" th:value="${userId}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

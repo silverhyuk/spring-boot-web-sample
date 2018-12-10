@@ -39,7 +39,6 @@ public class AuthFailureHandler extends SimpleUrlAuthenticationFailureHandler {
         response.getWriter().print(gson.toJson(jsonObject));
         response.getWriter().flush();*/
 
-
         request.setAttribute("userId", request.getParameter("userId"));
         request.getRequestDispatcher("/login.ws?error=true").forward(request, response);
     }
