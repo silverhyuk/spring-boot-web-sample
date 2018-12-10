@@ -1,4 +1,4 @@
-package com.cafe24.websample.web.welcome;
+package com.cafe24.websample.web.welcome.vo;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

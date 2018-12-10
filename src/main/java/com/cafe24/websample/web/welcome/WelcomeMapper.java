@@ -1,6 +1,6 @@
 package com.cafe24.websample.web.welcome;
 
-import com.cafe24.websample.web.welcome.WelcomeVO;
+import com.cafe24.websample.web.welcome.vo.WelcomeVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
