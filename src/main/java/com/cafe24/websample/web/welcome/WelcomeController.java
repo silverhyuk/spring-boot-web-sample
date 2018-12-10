@@ -2,6 +2,8 @@ package com.cafe24.websample.web.welcome;
 
 import com.cafe24.websample.web.welcome.vo.HelloVO;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
+import jdk.nashorn.internal.runtime.logging.Logger;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/welcome")
+@Log4j2
 public class WelcomeController {
+
+
+
     @Autowired
     WelcomeService welcomeService;
 
@@ -40,6 +46,7 @@ public class WelcomeController {
 
     @RequestMapping(value = "/hello3.ws")
     public ModelAndView hello3(@ModelAttribute("vo") HelloVO vo, HttpServletRequest request, HttpServletResponse response ) throws Exception {
+        log.debug(vo);
         return getModelAndView();
     }
 
