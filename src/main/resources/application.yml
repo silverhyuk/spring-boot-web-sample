@@ -73,7 +73,13 @@ logging :
       mybatis : DEBUG
   file : ./log/local
 
-
+management:
+  endpoints:
+    web:
+      base-path: /application
+      exposure:
+        include: "*"
+        #exclude: env,beans
 
 #manager:
 #  email-host: smtp.gmail.com
@@ -138,6 +144,15 @@ spring:
   devtools:
     livereload:
       enabled: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        base-path: /application
+        include: "*"
+        #exclude: env,beans
 #  redis:
 #    host: 127.0.0.1
 #    port: 32768
