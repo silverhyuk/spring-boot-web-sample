@@ -16,7 +16,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("preHandle executed");
+		//System.out.println("preHandle executed");
 		logger.info("===========================          START         ===========================");
 		logger.info(" Request URI \t:  " + request.getRequestURI());
 
@@ -35,14 +35,14 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-		System.out.println("postHandle executed");
+		//System.out.println("postHandle executed");
 		logger.info("===========================          END           ===========================");
 
 	}
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-    	System.out.println("afterCompletion executed");
+    	//System.out.println("afterCompletion executed");
         super.afterCompletion(request, response, handler, ex);
     }
  

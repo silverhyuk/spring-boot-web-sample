@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 
 @Controller
 public class AuthController {
@@ -26,6 +27,7 @@ public class AuthController {
         String userId = (String) req.getAttribute("userId");
         model.addAttribute("userId", userId);
         String error = (String) req.getParameter("error");
+        if(error != null)
         logger.debug("error : {}", error);
 
         return "auth/login";

@@ -2,7 +2,9 @@ package com.cafe24.websample.common.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +15,7 @@ public class LoggerAspect {
     static String name = "";
     static String type = "";
 
+	@Before("@annotation(com.cafe24.websample.common.annotation.LogAround)")
 	public void logBefore(JoinPoint joinPoint) {
 		logger.debug("logBefore()");
 	}
@@ -21,8 +24,9 @@ public class LoggerAspect {
 		logger.debug("logAfter()");
 	}
 
-    //@Around("execution(* kr.co.wcorp..*Control*(..)) or execution(* kr.co.wcorp..*Service*(..)) or execution(* kr.co.wcorp..*Dao*(..))")
-	//@Around("execution(* kr.co.wcorp..*Service.*(..))")
+    //@Around("execution(* com.cafe24.websample..*Control*(..)) or execution(* com.cafe24.websample..*Service*(..)) or execution(* com.cafe24.websample..*Dao*(..))")
+	//@Around("execution(* com.cafe24.websample.web.*.*(..))")
+	@Around("@annotation(com.cafe24.websample.common.annotation.LogAround)")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
     	Object thisObj = joinPoint.getTarget();
 		String className = thisObj.getClass().getName();
@@ -33,6 +37,7 @@ public class LoggerAspect {
 		//if (logger.isDebugEnabled()) {
 			logger.info("=================================================");
 			logger.info("START | " + className + "|" + joinPoint.getSignature().getName());
+
 /*			logger.debug("[class]:" + className);
 			logger.debug("[method]:" + joinPoint.getSignature().getName() + "()");*/
 		//}
@@ -42,6 +47,7 @@ public class LoggerAspect {
 		//if (logger.isDebugEnabled()) {
 /*			logger.info("[class]:" + className);
 			logger.info("[method]:" + joinPoint.getSignature().getName() + "()");*/
+		System.out.println("[소요시간]: " + new Object[] { (System.currentTimeMillis() - currentTime) } + "ms");
 			logger.info("[소요시간]: {}ms", new Object[] { (System.currentTimeMillis() - currentTime) });
 			logger.info("END | " + className + "|" + joinPoint.getSignature().getName());
 			logger.info("=================================================");

@@ -1,5 +1,6 @@
 package com.cafe24.websample.web.welcome;
 
+import com.cafe24.websample.common.annotation.LogAround;
 import com.cafe24.websample.web.welcome.vo.HelloVO;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
 import jdk.nashorn.internal.runtime.logging.Logger;
@@ -30,12 +31,16 @@ public class WelcomeController {
      * @return
      * @throws Exception
      */
+    @LogAround
     @RequestMapping(value = "/hello.ws", method = RequestMethod.GET)
-    public String hello(Model model) throws Exception {
+    public ModelAndView hello(Model model) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("welcome");
         List<WelcomeVO> list = welcomeService.selectWelcomeList();
-        model.addAttribute("name", list.get(0).getUsername());
-        model.addAttribute("title", "Welcome");
-        return "welcome";
+
+        mav.addObject("name", list.get(0).getUsername());
+        mav.addObject("title", "Welcome");
+        return mav;
     }
 
 
@@ -67,8 +72,10 @@ public class WelcomeController {
      * @throws Exception
      */
     @RequestMapping(value = "/content.ws", method = RequestMethod.GET)
-    public String content(Model model) throws Exception {
-        return "content";
+    public ModelAndView content(Model model) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("content");
+        return mav;
     }
 
     @RequestMapping(value = "/multi.ws", method = RequestMethod.GET)
