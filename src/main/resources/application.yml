@@ -94,7 +94,10 @@ mybatis:
   config-location: classpath:config/mybatis/mybatisConfig.xml
   type-aliases-package: com.cafe24.websample
 
-
+person:
+  first-name: eunhyuk
+  last-name: choi
+  age: 35
 # 개발환경
 ---
 server :

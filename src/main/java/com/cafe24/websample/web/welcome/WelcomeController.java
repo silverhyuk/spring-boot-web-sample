@@ -2,6 +2,7 @@ package com.cafe24.websample.web.welcome;
 
 
 import com.cafe24.websample.common.annotation.ProgressTime;
+import com.cafe24.websample.common.properties.Person;
 import com.cafe24.websample.web.welcome.vo.HelloVO;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
 import jdk.nashorn.internal.runtime.logging.Logger;
@@ -26,6 +27,8 @@ public class WelcomeController {
     @Autowired
     WelcomeService welcomeService;
 
+    @Autowired
+    Person person;
     /**
      * @url localhost/welcome/hello.ws
      * @param model
@@ -41,6 +44,9 @@ public class WelcomeController {
 
         mav.addObject("name", list.get(0).getUsername());
         mav.addObject("title", "Welcome");
+
+        log.debug("person : {}{} ({})",person.getLastName(), person.getFirstName(), person.getAge());
+
         return mav;
     }
 
