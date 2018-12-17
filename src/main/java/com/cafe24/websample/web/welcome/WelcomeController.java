@@ -1,6 +1,7 @@
 package com.cafe24.websample.web.welcome;
 
-import com.cafe24.websample.common.annotation.LogAround;
+
+import com.cafe24.websample.common.annotation.ProgressTime;
 import com.cafe24.websample.web.welcome.vo.HelloVO;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
 import jdk.nashorn.internal.runtime.logging.Logger;
@@ -31,7 +32,7 @@ public class WelcomeController {
      * @return
      * @throws Exception
      */
-    @LogAround
+    @ProgressTime
     @RequestMapping(value = "/hello.ws", method = RequestMethod.GET)
     public ModelAndView hello(Model model) throws Exception {
         ModelAndView mav = new ModelAndView();

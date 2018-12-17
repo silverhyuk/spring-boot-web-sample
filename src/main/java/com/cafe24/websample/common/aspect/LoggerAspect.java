@@ -7,15 +7,17 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 @Aspect
+@Component
 public class LoggerAspect {
     //protected Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
     private static final Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
     static String name = "";
     static String type = "";
 
-	@Before("@annotation(com.cafe24.websample.common.annotation.LogAround)")
+	//@Before("@annotation(com.cafe24.websample.common.annotation.LogAround)")
 	public void logBefore(JoinPoint joinPoint) {
 		logger.debug("logBefore()");
 	}
@@ -26,7 +28,7 @@ public class LoggerAspect {
 
     //@Around("execution(* com.cafe24.websample..*Control*(..)) or execution(* com.cafe24.websample..*Service*(..)) or execution(* com.cafe24.websample..*Dao*(..))")
 	//@Around("execution(* com.cafe24.websample.web.*.*(..))")
-	@Around("@annotation(com.cafe24.websample.common.annotation.LogAround)")
+	@Around("@annotation(com.cafe24.websample.common.annotation.ProgressTime)")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
     	Object thisObj = joinPoint.getTarget();
 		String className = thisObj.getClass().getName();
