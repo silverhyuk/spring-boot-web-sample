@@ -1,5 +1,6 @@
 package com.cafe24.websample.web.auth;
 
+import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
-
+@Log4j2
 @Controller
 public class AuthController {
 
-    Logger logger = LoggerFactory.getLogger(AuthController.class);
+    //Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @RequestMapping("/login.ws")
     public String loginForm(HttpServletRequest req, Model model) {
@@ -28,7 +29,7 @@ public class AuthController {
         model.addAttribute("userId", userId);
         String error = (String) req.getParameter("error");
         if(error != null)
-        logger.debug("error : {}", error);
+        log.debug("error : {}", error);
 
         return "auth/login";
     }

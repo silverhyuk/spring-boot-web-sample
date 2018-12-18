@@ -49,7 +49,6 @@ public class LoggerAspect {
 		//if (logger.isDebugEnabled()) {
 /*			logger.info("[class]:" + className);
 			logger.info("[method]:" + joinPoint.getSignature().getName() + "()");*/
-		System.out.println("[소요시간]: " + new Object[] { (System.currentTimeMillis() - currentTime) } + "ms");
 			logger.info("[소요시간]: {}ms", new Object[] { (System.currentTimeMillis() - currentTime) });
 			logger.info("END | " + className + "|" + joinPoint.getSignature().getName());
 			logger.info("=================================================");

@@ -6,6 +6,7 @@ import com.cafe24.websample.common.properties.Person;
 import com.cafe24.websample.web.welcome.vo.HelloVO;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
 import jdk.nashorn.internal.runtime.logging.Logger;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,17 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/welcome")
 @Log4j2
 public class WelcomeController {
 
-
-
-    @Autowired
-    WelcomeService welcomeService;
-
-    @Autowired
-    Person person;
+    private final WelcomeService  welcomeService;
+    private final Person person;
     /**
      * @url localhost/welcome/hello.ws
      * @param model
