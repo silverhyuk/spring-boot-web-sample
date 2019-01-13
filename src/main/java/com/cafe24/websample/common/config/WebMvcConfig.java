@@ -14,7 +14,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new CommonInterceptor())
                 .addPathPatterns("/**")
                 .addPathPatterns("/**/*")
-                .excludePathPatterns("/test/**/")
+                .excludePathPatterns("/dist/**/")
+                .excludePathPatterns("/bower_components/**/")
+                .excludePathPatterns("/plugins/**/")
+                .excludePathPatterns("/pages/**/")
                 .excludePathPatterns("/login.ws"); //로그인 쪽은 예외처리를 한다.
     }
 
