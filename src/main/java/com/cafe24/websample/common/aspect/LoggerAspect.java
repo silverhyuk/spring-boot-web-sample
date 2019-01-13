@@ -17,7 +17,7 @@ public class LoggerAspect {
     static String name = "";
     static String type = "";
 
-	@Before("@annotation(com.cafe24.websample.common.annotation.LogAround)")
+	//@Before("@annotation(com.cafe24.websample.common.annotation.LogAround)")
 	public void logBefore(JoinPoint joinPoint) {
 		logger.debug("logBefore()");
 	}
@@ -28,7 +28,7 @@ public class LoggerAspect {
 
     //@Around("execution(* com.cafe24.websample..*Control*(..)) or execution(* com.cafe24.websample..*Service*(..)) or execution(* com.cafe24.websample..*Dao*(..))")
 	//@Around("execution(* com.cafe24.websample.web.*.*(..))")
-	@Around("@annotation(com.cafe24.websample.common.annotation.LogAround)")
+	@Around("@annotation(com.cafe24.websample.common.annotation.ProgressTime)")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
     	Object thisObj = joinPoint.getTarget();
 		String className = thisObj.getClass().getName();
@@ -49,7 +49,6 @@ public class LoggerAspect {
 		//if (logger.isDebugEnabled()) {
 /*			logger.info("[class]:" + className);
 			logger.info("[method]:" + joinPoint.getSignature().getName() + "()");*/
-		System.out.println("[소요시간]: " + new Object[] { (System.currentTimeMillis() - currentTime) } + "ms");
 			logger.info("[소요시간]: {}ms", new Object[] { (System.currentTimeMillis() - currentTime) });
 			logger.info("END | " + className + "|" + joinPoint.getSignature().getName());
 			logger.info("=================================================");

@@ -59,7 +59,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/bower_components/**", "/dist/**", "/plugins/**", "/error/**");
+                .antMatchers("/resources/**", "/static/**", "/bower_components/**", "/dist/**", "/plugins/**", "/error/**", "/api/**");
     }
     @Bean
     public PasswordEncoder passwordEncoder() {

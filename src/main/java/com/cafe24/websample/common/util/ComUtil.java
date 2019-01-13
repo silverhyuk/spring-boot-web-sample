@@ -3,6 +3,9 @@ package com.cafe24.websample.common.util;
 
 import com.cafe24.websample.web.auth.CustomUser;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.CookieClearingLogoutHandler;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -97,7 +100,7 @@ public class ComUtil {
 	 * @author 최은혁
 	 * @date 2018.4.21
 	 */
-	public static CustomUser getLoginInfo(HttpServletRequest req)  throws Exception{
+	public static CustomUser getLoginInfo()  throws Exception{
 		//SecurityAuthManagerDvo loginDvo = (SecurityAuthManagerDvo)req.getSession().getAttribute("userLoginInfo");
 		CustomUser loginDvo = (CustomUser) SecurityContextHolder.getContext().getAuthentication().getDetails();
 		
@@ -111,24 +114,24 @@ public class ComUtil {
 	 */
 	public static boolean isLogin(HttpServletRequest req)  throws Exception{
 		boolean isLogin = false;
-		CustomUser loginDvo = (CustomUser)req.getSession().getAttribute("userLoginInfo");
-		if(loginDvo == null){
-			isLogin = false;
-		}else {
+		CustomUser loginDvo = getLoginInfo();
+		if (loginDvo != null) {
 			isLogin = true;
 		}
 		return isLogin;
 	}
 	
 	/**
-	 * 로그인 정보 가져오기.
+	 * 로그아웃
 	 * @author 최은혁
 	 * @date 2018.4.21
 	 */
-	public static void logout(HttpServletRequest req)  throws Exception{
-		req.getSession().removeAttribute("userLoginInfo");
+	public static void myLogoff(HttpServletRequest request, HttpServletResponse response) {
+		CookieClearingLogoutHandler cookieClearingLogoutHandler = new CookieClearingLogoutHandler(AbstractRememberMeServices.SPRING_SECURITY_REMEMBER_ME_COOKIE_KEY);
+		SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
+		cookieClearingLogoutHandler.logout(request, response, null);
+		securityContextLogoutHandler.logout(request, response, null);
 	}
-	
 		
 	/**
 	 * 아이피 보안 체크.

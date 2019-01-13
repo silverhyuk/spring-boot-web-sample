@@ -3,7 +3,6 @@ package com.cafe24.websample.web.welcome;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,9 @@ import java.util.List;
 @Service
 public class WelcomeService {
 
+    //private static final Logger log = LoggerFactory.getLogger(WelcomeService.class);
     private final WelcomeMapper welcomeMapper;
+
 
     public List<WelcomeVO> selectWelcomeList() throws Exception {
         WelcomeVO welcomeVO = new WelcomeVO();

@@ -1,36 +1,38 @@
 package com.cafe24.websample.web.welcome;
 
-import com.cafe24.websample.common.annotation.LogAround;
+
+import com.cafe24.websample.common.annotation.ProgressTime;
+import com.cafe24.websample.common.properties.Person;
 import com.cafe24.websample.web.welcome.vo.HelloVO;
 import com.cafe24.websample.web.welcome.vo.WelcomeVO;
+import jdk.nashorn.internal.runtime.logging.Logger;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@Log4j2
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/welcome")
-@RestController
+@Log4j2
 public class WelcomeController {
 
-    private final WelcomeService welcomeService;
-
+    private final WelcomeService  welcomeService;
+    private final Person person;
     /**
      * @url localhost/welcome/hello.ws
      * @param model
      * @return
      * @throws Exception
      */
-    @LogAround
+    @ProgressTime
     @RequestMapping(value = "/hello.ws", method = RequestMethod.GET)
     public ModelAndView hello(Model model) throws Exception {
         ModelAndView mav = new ModelAndView();
@@ -39,6 +41,9 @@ public class WelcomeController {
 
         mav.addObject("name", list.get(0).getUsername());
         mav.addObject("title", "Welcome");
+
+        log.debug("person : {}{} ({})",person.getLastName(), person.getFirstName(), person.getAge());
+
         return mav;
     }
 
